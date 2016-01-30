@@ -1,0 +1,55 @@
+.btn{
+	width: 100%;
+	max-width: 295px;
+	margin: 0 auto;
+	color: #fff;
+	margin-top: 60px;
+	margin-bottom: 95px;
+	cursor: pointer;
+	display: block;
+	text-decoration: none;
+	height: 55px;
+	padding: 9px 0;
+	text-align: center;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 35px;
+	background: rgba(61,181,220,1);
+background: -moz-linear-gradient(top, rgba(61,181,220,1) 0%, rgba(62,140,242,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(61,181,220,1)), color-stop(100%, rgba(62,140,242,1)));
+background: -webkit-linear-gradient(top, rgba(61,181,220,1) 0%, rgba(62,140,242,1) 100%);
+background: -o-linear-gradient(top, rgba(61,181,220,1) 0%, rgba(62,140,242,1) 100%);
+background: -ms-linear-gradient(top, rgba(61,181,220,1) 0%, rgba(62,140,242,1) 100%);
+background: linear-gradient(to bottom, rgba(61,181,220,1) 0%, rgba(62,140,242,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3db5dc', endColorstr='#3e8cf2', GradientType=0 );
+border-radius: 5px;
+border: 1px solid #3e8cf2;
+text-shadow: 0px 2px 0px rgba(57, 130, 195, 1);
+box-shadow: 0px 1px 5px 0px rgba(0,0,0,.2);
+transition: all .3s;
+}
+
+.btn:hover{
+	box-shadow: none;
+	color: #0179B6;
+	text-shadow: 0px 2px 0px rgba(126, 199, 238, 1);
+}
+
+.btn:active{
+	background: rgba(62,140,242,1);
+background: -moz-linear-gradient(top, rgba(62,140,242,1) 0%, rgba(61,181,220,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(62,140,242,1)), color-stop(100%, rgba(61,181,220,1)));
+background: -webkit-linear-gradient(top, rgba(62,140,242,1) 0%, rgba(61,181,220,1) 100%);
+background: -o-linear-gradient(top, rgba(62,140,242,1) 0%, rgba(61,181,220,1) 100%);
+background: -ms-linear-gradient(top, rgba(62,140,242,1) 0%, rgba(61,181,220,1) 100%);
+background: linear-gradient(to bottom, rgba(62,140,242,1) 0%, rgba(61,181,220,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e8cf2', endColorstr='#3db5dc', GradientType=0 );
+box-shadow: none;
+color: #0179B6;
+	text-shadow: 0px 2px 0px rgba(126, 199, 238, 1);
+}
+
+.btn_switch{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}

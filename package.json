@@ -1,0 +1,36 @@
+{
+  "name": "Media-looks",
+  "version": "1.0.0",
+  "description": "Переверстать для себя",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Udobnaja/Media-looks.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Udobnaja/Media-looks/issues"
+  },
+  "homepage": "https://github.com/Udobnaja/Media-looks#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.3.1",
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-csscomb": "^3.0.6",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-group-css-media-queries": "^1.1.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.1",
+    "imagemin-pngquant": "^4.2.0",
+    "jade": "^1.11.0"
+  }
+}

@@ -1,0 +1,25 @@
+.headline{
+	font-size: 50px;
+	line-height: 52px;
+	color: #333;
+	text-align: center;
+	margin-top: 80px;
+	margin-bottom: 40px;
+	font-weight: 300;
+}
+
+.headline__subtitle{
+	font-size: 24px;
+	color: #4d4d4d;
+}
+
+.headline_h2{
+	margin-top: 100px;
+	margin-bottom: 35px;
+	font-size: 34px;
+	line-height: 38px;
+}
+
+.headline__subtitle_h2{
+	font-size: 18px;
+}

@@ -1,0 +1,24 @@
+.code__switchers{
+	padding: 30px 0;
+}
+
+.code__area{
+	margin-left: 20px;
+	background-color: #fff;
+	border-radius: 7px;
+	box-shadow: 1px 1px 6px  rgba(0,0,0,.2);
+}
+
+.code__header{
+	background: #f9f9f9;
+	padding: 15px 0;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	font-weight: normal;
+	text-align: center;
+
+}
+
+.code__body{
+	padding: 30px;
+}

@@ -1,0 +1,52 @@
+.excellence__ico-container{
+	background: rgba(61,181,220,1);
+	background: -moz-linear-gradient(top, rgba(61,181,220,1) 0%, rgba(62,140,242,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(61,181,220,1)), color-stop(100%, rgba(62,140,242,1)));
+	background: -webkit-linear-gradient(top, rgba(61,181,220,1) 0%, rgba(62,140,242,1) 100%);
+	background: -o-linear-gradient(top, rgba(61,181,220,1) 0%, rgba(62,140,242,1) 100%);
+	background: -ms-linear-gradient(top, rgba(61,181,220,1) 0%, rgba(62,140,242,1) 100%);
+	background: linear-gradient(to bottom, rgba(61,181,220,1) 0%, rgba(62,140,242,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3db5dc', endColorstr='#3e8cf2', GradientType=0 );
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	display: block;
+	border: 1px solid #3e8cf2;
+	-webkit-box-shadow: 0px 2px 0px 0px rgba(209,209,209,1);
+	-moz-box-shadow: 0px 2px 0px 0px rgba(209,209,209,1);
+	box-shadow: 0px 2px 0px 0px rgba(209,209,209,1);
+	padding: 5px 0;
+	margin: 0 auto;
+}
+
+.excellence__ico{
+	background-image: url(images/excellence__ico.png);
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+}
+
+.excellence__ico_support{
+	background-position: -5px -85px;
+}
+
+.excellence__ico_professionalism{
+	background-position: -85px -5px;
+}
+
+.excellence__ico_broadcasts{
+	background-position: -5px -5px;
+}
+
+.excellence__desk{
+	line-height: 27px;
+	white-space: nowrap;
+}
+
+.excellence__title{
+	font-size: 18px;
+	color: #333;
+	font-weight: 400;
+}
+

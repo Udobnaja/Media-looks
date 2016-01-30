@@ -1,0 +1,10 @@
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+body{
+	margin: 0;
+	font: 16px/18px 'Open Sans', sans-serif;;
+	color: #8e8e8e;
+	font-weight: 300;
+}

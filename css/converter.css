@@ -1,0 +1,38 @@
+.converter__state{
+    vertical-align: 20%;
+    display: inline-block;
+}
+
+.converter__btn {
+    position: relative;
+     width: 45px;
+     margin: 0 15px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    display: inline-block;
+}
+.converter__checkbox {
+    display: none;
+}
+.converter__label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #8E8E8E; border-radius: 15px;
+    height: 21px;
+}
+
+.converter__switch {
+    display: block; width: 17px;
+    margin: 2px;
+    background: #3e8cf2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border-radius: 15px;
+    transition: all 0.3s ease-in 0s;
+    right: 24px 
+}
+
+.converter__checkbox:checked + .converter__label .converter__switch {
+    right: 0px; 
+}
