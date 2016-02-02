@@ -15,18 +15,18 @@
 </head>
 <body><!--[if lt IE 8]>
   <p class="paragraph">You are using an <strong> outdated </strong> browser. Please <a href="http://browsehappy.com/" class="link"> upgrade your browser </a> to improve your experience</p><![endif]--> 
-  <ul class="main-menu">
-    <li class="main-menu__item"><a href="" class="main-menu__link main-menu__link_active logo"><img src="images/logo.png" alt=""></a></li>
-    <li class="main-menu__item"><a href="" class="main-menu__link">BLOG</a></li>
-    <li class="main-menu__item"><a href="" class="main-menu__link">MFORMATS</a></li>
-    <li class="main-menu__item"><a href="" class="main-menu__link">MPLATFORM</a></li>
-    <li class="main-menu__item"><a href="" class="main-menu__link">DIRECTSSHOW</a></li>
-    <li class="main-menu__item"><a href="" class="main-menu__link">DIRECT TAKE</a></li>
-    <li class="main-menu__item"><a href="" class="main-menu__link">SERVICES</a></li>
-    <li class="main-menu__item"><a href="" class="main-menu__link">SUPPORT</a></li>
-    <li class="main-menu__item"><a href="" class="main-menu__link">COMPANY</a></li>
-  </ul>
   <div class="gradient">
+    <ul class="main-menu">
+      <li class="main-menu__item"><a href="" class="main-menu__link main-menu__link_active logo"><img src="images/logo.png" alt=""></a></li>
+      <li class="main-menu__item"><a href="" class="main-menu__link">BLOG</a></li>
+      <li class="main-menu__item"><a href="" class="main-menu__link">MFORMATS</a></li>
+      <li class="main-menu__item"><a href="" class="main-menu__link">MPLATFORM</a></li>
+      <li class="main-menu__item"><a href="" class="main-menu__link">DIRECTSSHOW</a></li>
+      <li class="main-menu__item"><a href="" class="main-menu__link">DIRECT TAKE</a></li>
+      <li class="main-menu__item"><a href="" class="main-menu__link">SERVICES</a></li>
+      <li class="main-menu__item"><a href="" class="main-menu__link">SUPPORT</a></li>
+      <li class="main-menu__item"><a href="" class="main-menu__link">COMPANY</a></li>
+    </ul>
     <div class="content">
       <h1 class="headline">MFormats SDK
         <div class="headline__subtitle">A smart video codec library for C#, VB.NET, Delphi and C++</div>
@@ -68,28 +68,189 @@
       </h2>
       <div class="row code">
         <div class="row__col row__col_sw_1 code__switchers">
-          <div class="btn btn_switch">C#</div>
-          <div class="btn btn_switch">C++</div>
-          <div class="btn btn_switch">Delphi</div>
+          <div data-language="C#" class="btn btn_switch btn_active js-btn__language">C#</div>
+          <div data-language="C++" class="btn btn_switch js-btn__language">C++</div>
+          <div data-language="Delphi" class="btn btn_switch js-btn__language">Delphi</div>
           <div class="btn btn_switch">VB.NET</div>
         </div>
         <div class="row__col row__col_sw_11">
-          <div class="code__area">
-            <div class="code__header converter">
-              <div class="converter__state">Coding</div>
+          <div class="code__area js-code__area">
+            <div class="code__header converter js-code__header">
+              <div data-converter="coding" class="converter__state converter__state_active">Coding</div>
               <div class="converter__btn">
-                <input id="converter" type="checkbox" name="converter" class="converter__checkbox">
+                <input id="converter" type="checkbox" name="converter" class="converter__checkbox js-converter__checkbox">
                 <label for="converter" class="converter__label"><span class="converter__switch"></span></label>
               </div>
-              <div class="converter__state">Encoding</div>
+              <div data-converter="encoding" class="converter__state">Encoding	</div>
             </div>
-            <div class="code__body"></div>
+            <div class="code__body">
+              <div data-language="C#" class="code__language code__language_show js-code__language">
+                <div class="code__numbers js-code__numbers"> </div>
+                <div data-converter="coding" class="code__content code__content_show js-code__content">
+                  MFFactoryClass myFactory =  new MFFactoryClass();
+                  <br> M_AV_PROPS frameProps = new  M_AV_PROPS();
+                  <br> frameProps.vidProps.eVideoFormat = eMVideoFormat.eMVF_HD1080_5994i;
+                  <br> MFFrame createdFrame;
+                  <br> myFactory.MFFrameCreateFromMem(ref frameProps, lpVideo, 0, 0, out createdFrame, ""; //- w/o audio
+                  <br> MFWriter myWriter = new MFWriter();
+                  <br> myWriter.WriterSet(@"c:\testEncoding.mp4", 1, "format='mp4' video::codec='mpeg4' audio::codec='aac'");
+                  <br>((IMFReceiver)myWriter).ReceiverFramePut(createdFrame, -1, "");
+                  <br> M_AV_PROPS frameProps =  new M_AV_PROPS();
+                  <br> frameProps.vidProps.eVideoFormat = eMVideoFormat.eMVF_HD1080_5994i;
+                  <br> MFWriter myWriter = new MFWriter();
+                </div>
+                <div data-converter="encoding" class="code__content js-code__content">
+                  MFReader myReader = new MFReader();
+                  <br>myReader.ReaderOpen(@"D:\video\myClip.mxf", "");
+                  <br>MFFrame myFrame;
+                  <br>((IMFSource)myReader).SourceFrameGet(-1, out myFrame, "");
+                </div>
+              </div>
+              <div data-language="C++" class="code__language js-code__language">
+                <div class="code__numbers js-code__numbers"> </div>
+                <div data-converter="coding" class="code__content code__content_show js-code__content">
+                  IMFFactory* pFactory = NULL;
+                  <br>::CoCreateInstance(__uuidof(MFFactory), NULL, CLSCTX_ALL, __uuidof(IMFFactory), (void**)&amp;pFactory);
+                  <br><br>
+                  M_AV_PROPS avFrameProps = {};
+                  <br>avFrameProps.vidProps.eVideoFormat = eMVideoFormat.eMVF_HD1080_5994i;
+                  <br><br>
+                  IMFFrame* pFrame;
+                  <br><br>
+                  pFactory->MFFrameCreateFromMem(avFrameProps, lpVideo, lAudioSamples, lpAudio, &pFrame, NULL);
+                  <br><br>
+                  IMFWriter* pWriter = NULL;
+                  <br>::CoCreateInstance(__uuidof(MFWriter), NULL, CLSCTX_ALL, __uuidof(IMFWriter), (void**)&pFactory);
+                  <br><br>
+                  BSTR bsFileName = ::SysAllocString(L"c:\testEncoding.mp4");
+                  <br>BSTR bsOptions = ::SysAllocString(L"format='mp4' video::codec='mpeg4' audio::codec='aac'");
+                  <br>pWriter->WriterSet(bsFileName, 1, bsOptions);
+                  <br>::SysFreeString(bsOptions);
+                  <br>::SysFreeString(bsFileName);
+                  <br><br>
+                  pWriter->ReceiverFramePut(pFrame, -1, NULL);
+                  <br><br>
+                  pFrame->Release();
+                  <br>pWriter->Release();
+                  <br>pFactory->Release();
+                </div>
+                <div data-converter="encoding" class="code__content js-code__content">
+                  IMFReader* pReader = NULL;
+                  <br>::CoCreateInstance(__uuidof(MFReader), NULL, CLSCTX_ALL, __uuidof(IMFReader), (void**)&pReader);
+                  <br><br>
+                  BSTR bsFileName = ::SysAllocString(L"D:\video\myClip.mxf");
+                  <br>pReader->ReaderOpen(bsFileName, NULL);
+                  <br>
+                  <br>::SysFreeString(bsFileName);
+                  <br><br>
+                  IMFFrame* pFrame;
+                  <br>pReader->SourceFrameGet(-1, &pFrame, NULL);
+                  <br><br>
+                  pFrame->Release();
+                  <br>pReader->ReaderClose();
+                  <br>pReader->Release();
+                </div>
+              </div>
+              <div data-language="Delphi" class="code__language js-code__language">
+                <div class="code__numbers js-code__numbers"> </div>
+                <div data-converter="coding" class="code__content code__content_show js-code__content">
+                  Dim myFactory As New MFFactoryClass()
+                  <br>Dim frameProps As New M_AV_PROPS()
+                  <br>frameProps.vidProps.eVideoFormat = eMVideoFormat.eMVF_HD1080_5994i
+                  <br>Dim createdFrame As MFFrame
+                  <br>myFactory.MFFrameCreateFromMem(frameProps, lpVideo, lAudioSamples, lpAudio, <<br>createdFrame, "")
+                  <br>Dim myWriter As New MFWriter()
+                  <br>myWriter.WriterSet("c:\testEncoding.mp4", 1, "format='mp4' video::codec='mpeg4' audio::codec='aac'")
+                  <br>myWriter.ReceiverFramePut(createdFrame, -1, "")
+                </div>
+                <div data-converter="encoding" class="code__content js-code__content">
+                  Dim myReader As New MFReader()
+                  <br>myReader.ReaderOpen(@"D:\video\myClip.mxf", "")
+                  <br>Dim myFrame As MFFrame
+                  <br>myReader.SourceFrameGet(-1, myFrame, "")
+                  
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <h2 class="headline headline_h2">Supported formats
         <div class="headline__subtitle headline__subtitle_h2">Containers, codecs, network streams and features</div>
       </h2>
+      <div class="support">
+        <div class="support__headline">File formats</div>
+        <div class="support__body">
+          <div class="row support__item">
+            <div class="row__col support__subtitle">MP4</div>
+            <div class="row__col support__status">o</div>
+            <div class="row__col support__status support__status_pro">P</div>
+            <div class="row__col support__status">E</div>
+          </div>
+          <div class="row support__item">
+            <div class="row__col support__subtitle">WOV</div>
+            <div class="row__col support__status">S</div>
+            <div class="row__col support__status support__status_pro">P</div>
+            <div class="row__col support__status">E</div>
+          </div>
+          <div class="row support__item">
+            <div class="row__col support__subtitle">DV</div>
+            <div class="row__col support__status">S</div>
+            <div class="row__col support__status support__status_pro">P</div>
+            <div class="row__col support__status">E</div>
+          </div>
+          <div class="row support__item">
+            <div class="row__col support__subtitle">MPEG-TS</div>
+            <div class="row__col support__status">S</div>
+            <div class="row__col support__status support__status_pro">P</div>
+            <div class="row__col support__status">E</div>
+          </div>
+          <div class="row support__item">
+            <div class="row__col support__subtitle">MPEG-PS</div>
+            <div class="row__col support__status">S</div>
+            <div class="row__col support__status support__status_pro">P</div>
+            <div class="row__col support__status">E</div>
+          </div>
+          <div class="row support__item">
+            <div class="row__col support__subtitle">FLV</div>
+            <div class="row__col support__status">S</div>
+            <div class="row__col support__status support__status_pro">P</div>
+            <div class="row__col support__status">E</div>
+          </div>
+          <div class="row support__item">
+            <div class="row__col support__subtitle">ASF/WMV</div>
+            <div class="row__col support__status">S</div>
+            <div class="row__col support__status support__status_pro">P</div>
+            <div class="row__col support__status">E</div>
+          </div>
+          <div class="row support__item">
+            <div class="row__col support__subtitle">AVI</div>
+            <div class="row__col support__status">S</div>
+            <div class="row__col support__status support__status_pro">P</div>
+            <div class="row__col support__status">E</div>
+          </div>
+          <div class="row support__item">
+            <div class="row__col support__subtitle">DVD-video</div>
+            <div class="row__col support__status">S</div>
+            <div class="row__col support__status support__status_pro">P</div>
+            <div class="row__col support__status">E</div>
+          </div>
+          <div class="row support__item">
+            <div class="row__col support__subtitle">MXF</div>
+            <div class="row__col support__status">S</div>
+            <div class="row__col support__status support__status_pro">P</div>
+            <div class="row__col support__status">E</div>
+          </div>
+          <div class="row support__item">
+            <div class="row__col support__subtitle">LXF</div>
+            <div class="row__col support__status">S</div>
+            <div class="row__col support__status support__status_pro">P</div>
+            <div class="row__col support__status">E</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/main.js"></script>
 </body>

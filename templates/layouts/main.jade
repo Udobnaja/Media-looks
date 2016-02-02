@@ -11,6 +11,10 @@ body
 	p.paragraph You are using an <strong> outdated </strong> browser. Please <a href="http://browsehappy.com/" class="link"> upgrade your browser </a> to improve your experience
 	<![endif]--> 
 
-	include ../helpers/mixins
-	include ../partials/main-menu
-	block content
+	.gradient
+		include ../helpers/mixins
+		include ../partials/main-menu
+		block content
+			
+	block scripts
+		include ../partials/scripts

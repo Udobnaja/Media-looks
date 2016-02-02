@@ -1,5 +1,5 @@
 .code__switchers{
-	padding: 30px 0;
+	padding: 36px 0;
 }
 
 .code__area{
@@ -19,6 +19,64 @@
 
 }
 
+.code__language{
+	color: #4d4d4d;
+	font-size: 15px;
+	line-height: 22px;
+	font-family: 'menloregular';
+	margin: 30px 0 30px 60px;
+	border-left: 2px solid #cbcbcb;
+	padding-left: 20px;
+	position: relative;
+	display: none;
+}
+
+.code__language_show{
+	display: block;
+}
+
 .code__body{
-	padding: 30px;
+	
+	overflow: hidden;
+}
+
+.code__numbers{
+	position: absolute;
+	top: 0;
+	left: -80px;
+	text-align: right;
+	color: #cbcbcb;
+	width: 60px;
+}
+
+.code__content{
+	display: none;
+}
+
+.code__content_show{
+	display: block;
+}
+
+.code__color-blue{
+	color: #0077AA;
+}
+
+.code__color-brown{
+	color: #A4805E;
+}
+
+.code__color-red{
+	color: #DB4A68;
+}
+
+.code__color-green{
+	color: #66973F;
+}
+
+.code__color-gray{
+	color: #979797;
+}
+
+.code__color-purple{
+	color: #97006F;
 }

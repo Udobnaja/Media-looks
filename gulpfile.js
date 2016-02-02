@@ -60,7 +60,7 @@ gulp.task('images', function () {
 
 gulp.task('js', function () {
     gulp.src('js/*.js')
-        .pipe(uglify())
+        /*.pipe(uglify())*/
         .pipe(gulp.dest(params.out + '/js'))
         .pipe(reload({stream : true}));
 });
