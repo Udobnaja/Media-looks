@@ -50,6 +50,7 @@
 	transition: all 0.3s;
 	z-index: 2;
 	transform: translateZ(0);
+	margin-top: -3px;
 }
 
 .support__arrow:after{
@@ -67,7 +68,6 @@
 
 .support__arrow_close{
 	transform: rotate(180deg);
-	margin-top: -2px;
 }
 
 .support__body{
