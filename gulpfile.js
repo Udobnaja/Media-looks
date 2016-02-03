@@ -7,7 +7,6 @@ var gulp = require('gulp'),
     postcss = require('gulp-postcss'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
-    gcmq = require('gulp-group-css-media-queries'),
     cssmin = require('gulp-cssmin'),
     csscomb = require('gulp-csscomb'),
     jade = require('jade'),
@@ -40,7 +39,6 @@ gulp.task('css', function () {
     gulp.src(['css/*.css'])
         .pipe(concat('styles.css'))
         .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] })]))
-        .pipe(gcmq())
         .pipe(csscomb())
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
@@ -60,7 +58,7 @@ gulp.task('images', function () {
 
 gulp.task('js', function () {
     gulp.src('js/*.js')
-        /*.pipe(uglify())*/
+        .pipe(uglify())
         .pipe(gulp.dest(params.out + '/js'))
         .pipe(reload({stream : true}));
 });
