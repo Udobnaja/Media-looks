@@ -27,10 +27,12 @@
 	border-top-right-radius: 7px;
 }
 
-.support__headline_last{
+.support__headline_close{
 	border-bottom-left-radius: 7px;
 	border-bottom-right-radius: 7px;
 	border-bottom: none;
+	transition: all .4s;
+	transition-delay: .6s;
 }
 
 .support__arrow{
@@ -47,6 +49,7 @@
 	border-bottom: 8px solid #3e8cf2;
 	transition: all 0.3s;
 	z-index: 2;
+	transform: translateZ(0);
 }
 
 .support__arrow:after{
@@ -70,6 +73,8 @@
 .support__body{
 	background: #fff;
 	padding: 15px 30px;
+	transform: translateZ(0);
+	will-change: all;
 	display: none;
 }
 

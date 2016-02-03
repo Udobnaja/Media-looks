@@ -38,6 +38,8 @@
 .code__body{
 	height: 302px;
 	overflow: hidden;
+	transition: all .7s;
+	transform: translateZ(0);
 }
 
 .code__numbers{

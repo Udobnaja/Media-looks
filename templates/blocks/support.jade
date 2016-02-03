@@ -12,7 +12,7 @@ mixin support(elements)
 		each element in elements
 			- className = 'support__arrow'
 			- if (element.last)
-				.support__headline.support__headline_last.js-show-next
+				.support__headline.support__headline_last.support__headline_close.js-show-next
 					.support__name= element.headlineName
 					.support__arrow.support__arrow_close
 			- else

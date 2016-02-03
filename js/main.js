@@ -123,7 +123,7 @@ $(function () {
 		var flag;
 		$('.converter__state').removeClass('converter__state_active');
 		$('.code__content').toggleClass('code__content_show');
-		$('.code__body').animate({height: defineHeight('.code__language_show')}, 500);
+		$('.code__body').height(defineHeight('.code__language_show'));
 		flag = (this.checked)?'encoding':'coding';
 		buildOnCnahge(flag);
     });
@@ -135,17 +135,17 @@ $(function () {
     	dataFilter('.js-code__language', 'language', $(this).data('language')).addClass('code__language_show');        	       	
         buildLine('.code__language_show .code__content_show'); 
         
-    	$('.code__body').animate({height: defineHeight('.code__language_show')}, 500);
+    	$('.code__body').height(defineHeight('.code__language_show'));
     })
 
     $('.js-show-next').click( function(e){
         e.preventDefault();
-        $(this).next().slideToggle(800);
+        $(this).next().slideToggle(700);
     });
 
     $('.support__headline').click( function(){
     	$(this).find('.support__arrow').toggleClass('support__arrow_close');
-        if ($(this).last()) $(this).toggleClass('support__headline_last');
+        if ($(this).hasClass('support__headline_last')) {$(this).toggleClass('support__headline_close')};
     });
 	
  });
