@@ -54,3 +54,9 @@ color: #0179B6;
 	margin-top: 8px;
 	margin-bottom: 8px;
 }
+
+.btn_big{
+	height: 70px;
+	max-width: 380px;
+	line-height: 50px;
+}

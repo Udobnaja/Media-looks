@@ -7,11 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Media-looks</title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <meta name="viewport">
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="x-rim-auto-match" content="none">
   <link rel="stylesheet" href="styles.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body><!--[if lt IE 8]>
   <p class="paragraph">You are using an <strong> outdated </strong> browser. Please <a href="http://browsehappy.com/" class="link"> upgrade your browser </a> to improve your experience</p><![endif]--> 
@@ -71,7 +72,7 @@
           <div data-language="C#" class="btn btn_switch btn_active js-btn__language">C#</div>
           <div data-language="C++" class="btn btn_switch js-btn__language">C++</div>
           <div data-language="Delphi" class="btn btn_switch js-btn__language">Delphi</div>
-          <div class="btn btn_switch">VB.NET</div>
+          <div data-language="vbnet" class="btn btn_switch js-btn__language">VB.NET</div>
         </div>
         <div class="row__col row__col_sw_11">
           <div class="code__area js-code__area">
@@ -168,7 +169,19 @@
                   <br>myReader.ReaderOpen(@"D:\video\myClip.mxf", "")
                   <br>Dim myFrame As MFFrame
                   <br>myReader.SourceFrameGet(-1, myFrame, "")
-                  
+                </div>
+              </div>
+              <div data-language="vbnet" class="code__language js-code__language">
+                <div class="code__numbers js-code__numbers"> </div>
+                <div data-converter="coding" class="code__content code__content_show js-code__content">
+                  Dim myFactory As New MFFactoryClass()
+                  <br>Dim frameProps As New M_AV_PROPS()
+                  <br>frameProps.vidProps.eVideoFormat = eMVideoFormat.eMVF_HD1080_5994i
+                  <br>Dim createdFrame As MFFrame
+                </div>
+                <div data-converter="encoding" class="code__content js-code__content">
+                  Dim myReader As New MFReader()
+                  <br>myReader.ReaderOpen(@"D:\video\myClip.mxf", "")
                 </div>
               </div>
             </div>
@@ -178,79 +191,356 @@
       <h2 class="headline headline_h2">Supported formats
         <div class="headline__subtitle headline__subtitle_h2">Containers, codecs, network streams and features</div>
       </h2>
-      <div class="support">
-        <div class="support__headline">File formats</div>
-        <div class="support__body">
-          <div class="row support__item">
-            <div class="row__col support__subtitle">MP4</div>
-            <div class="row__col support__status">o</div>
-            <div class="row__col support__status support__status_pro">P</div>
-            <div class="row__col support__status">E</div>
-          </div>
-          <div class="row support__item">
-            <div class="row__col support__subtitle">WOV</div>
-            <div class="row__col support__status">S</div>
-            <div class="row__col support__status support__status_pro">P</div>
-            <div class="row__col support__status">E</div>
-          </div>
-          <div class="row support__item">
-            <div class="row__col support__subtitle">DV</div>
-            <div class="row__col support__status">S</div>
-            <div class="row__col support__status support__status_pro">P</div>
-            <div class="row__col support__status">E</div>
-          </div>
-          <div class="row support__item">
-            <div class="row__col support__subtitle">MPEG-TS</div>
-            <div class="row__col support__status">S</div>
-            <div class="row__col support__status support__status_pro">P</div>
-            <div class="row__col support__status">E</div>
-          </div>
-          <div class="row support__item">
-            <div class="row__col support__subtitle">MPEG-PS</div>
-            <div class="row__col support__status">S</div>
-            <div class="row__col support__status support__status_pro">P</div>
-            <div class="row__col support__status">E</div>
-          </div>
-          <div class="row support__item">
-            <div class="row__col support__subtitle">FLV</div>
-            <div class="row__col support__status">S</div>
-            <div class="row__col support__status support__status_pro">P</div>
-            <div class="row__col support__status">E</div>
-          </div>
-          <div class="row support__item">
-            <div class="row__col support__subtitle">ASF/WMV</div>
-            <div class="row__col support__status">S</div>
-            <div class="row__col support__status support__status_pro">P</div>
-            <div class="row__col support__status">E</div>
-          </div>
-          <div class="row support__item">
-            <div class="row__col support__subtitle">AVI</div>
-            <div class="row__col support__status">S</div>
-            <div class="row__col support__status support__status_pro">P</div>
-            <div class="row__col support__status">E</div>
-          </div>
-          <div class="row support__item">
-            <div class="row__col support__subtitle">DVD-video</div>
-            <div class="row__col support__status">S</div>
-            <div class="row__col support__status support__status_pro">P</div>
-            <div class="row__col support__status">E</div>
-          </div>
-          <div class="row support__item">
-            <div class="row__col support__subtitle">MXF</div>
-            <div class="row__col support__status">S</div>
-            <div class="row__col support__status support__status_pro">P</div>
-            <div class="row__col support__status">E</div>
-          </div>
-          <div class="row support__item">
-            <div class="row__col support__subtitle">LXF</div>
-            <div class="row__col support__status">S</div>
-            <div class="row__col support__status support__status_pro">P</div>
-            <div class="row__col support__status">E</div>
-          </div>
-        </div>
-      </div>
+            <div class="support">
+              <div class="support__sticky sticky">
+                <div class="row">
+                  <div class="row__col sticky__subtitle"></div>
+                  <div class="row__col sticky__status">Startup</div>
+                  <div class="row__col sticky__status sticky__status_pro">Professional</div>
+                  <div class="row__col sticky__status">Expert</div>
+                </div>
+              </div>
+              <div class="support__headline js-show-next">
+                <div class="support__name">File formats</div>
+                <div class="support__arrow"></div>
+              </div>
+              <div style="display:block" class="support__body">
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">MP4</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">MOV</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">DV</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">MPEG-TS</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">MPEG-TS</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">ASF/WMV</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">MP4</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">AVI</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">DVD-Video</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">MXF</div>
+                        <div class="row__col support__status support__status_not"></div>
+                        <div class="row__col support__status support__status_pro support__status_not"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">LXF</div>
+                        <div class="row__col support__status support__status_not"></div>
+                        <div class="row__col support__status support__status_pro support__status_not"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+              </div>
+              <div class="support__headline js-show-next">
+                <div class="support__name">Network streams</div>
+                <div class="support__arrow support__arrow_close"></div>
+              </div>
+              <div class="support__body">
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">RTMP</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">HTTP</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">UDP</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">RTSP (receive only)</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">MPEG-DASH (receive only)</div>
+                        <div class="row__col support__status support__status_not"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">WebRTC (coming soon)</div>
+                        <div class="row__col support__status support__status_not"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">NewTek's NDI (coming soon)</div>
+                        <div class="row__col support__status support__status_not"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+              </div>
+              <div class="support__headline js-show-next">
+                <div class="support__name">Video codecs</div>
+                <div class="support__arrow support__arrow_close"></div>
+              </div>
+              <div class="support__body">
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">H.264/AVC (CPU-based playback)</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">H.265/HEVC (CPU-based playback)</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">MPEG-4</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">MPEG-2</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">DVCPRO</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">M-JPEG</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">DNxHD</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">WMV</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">VC-1o</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">VP8</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">VP9</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">H.264/AVC (GPU-powered encoding)</div>
+                        <div class="row__col support__status support__status_not"></div>
+                        <div class="row__col support__status support__status_pro support__status_not"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">H.265/HEVC (GPU-powered encoding)</div>
+                        <div class="row__col support__status support__status_not"></div>
+                        <div class="row__col support__status support__status_pro support__status_not"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+              </div>
+              <div class="support__headline js-show-next">
+                <div class="support__name">Audio codecs</div>
+                <div class="support__arrow support__arrow_close"></div>
+              </div>
+              <div class="support__body">
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">AAC</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">MP3</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">WMA</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">FLAC</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">Vorbis</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">MP2</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">PCM</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+              </div>
+              <div class="support__headline support__headline_last js-show-next">
+                <div class="support__name">Fatures</div>
+                <div class="support__arrow support__arrow_close"></div>
+              </div>
+              <div class="support__body">
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">Grab video from DirectShow-based live sources</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">Share a single video source between several processes or applications</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">Mix several video streams and use transition effects</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">Overlay simple text and images (.GIF, .JPG, .PNG) </div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">Low-latency integration with I/O hardware by Blackmagic Design, AJA, Bluefish444, DELTACAST and Stream Labs</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">GPU-powered screen capture engine</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">Growing files playback</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">Time shifting</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+                      <div class="row support__item">
+                        <div class="row__col support__subtitle">External decoding</div>
+                        <div class="row__col support__status"></div>
+                        <div class="row__col support__status support__status_pro"></div>
+                        <div class="row__col support__status"></div>
+                      </div>
+              </div>
+            </div>
     </div>
+  </div>
+  <div class="review">
+    <div class="review__item">
+      <div class="review__logo review__logo_noacsport"></div>
+      <div class="review__name">Alberto Rodriguez</div>
+      <div class="review__content">MFormats SDK is in the core of video files processing in Nacsport’s products. We are just starting to scratch the surface of the SDK’s features set — for sure we will be using it more and more in the upcoming products.</div>
+    </div>
+    <div class="review__item">
+      <div class="review__logo review__logo_picsystemsag"></div>
+      <div class="review__name">Rolf Siegrist</div>
+      <div class="review__content">Before MFormats SDK video was hard to deal with in a managed language like C# and the .NET framework. Now it’s a breeze. We developed a prototype for an interview system together with Medialooks in no time. From the planning up to the end product, Medialooks was the right competent partner. The future of video development is saved and we can fulfil our customers’ wishes.</div>
+    </div>
+    <div class="review__item">
+      <div class="review__logo review__logo_rtg"></div>
+      <div class="review__name">Kelly Lewis</div>
+      <div class="review__content">Real Time Graphics uses MFormats SDK to augment their custom Ingest and Playout systems to allow for delayed HD-SDI playout and web streaming. The implementation of the required MFormats SDK functionality was rapid and trouble free. While we have only began scratching at the surface of what Medialooks’ products can offer, we look forward to implementing additional MFormats SDK functionality into both our new and legacy software and hardware systems.</div>
+    </div><a href="#" class="btn btn_big">Download 60-day trial</a>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="js/main.js"></script>
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__headline">Medialooks
+        <div class="footer__subtitle">We develop software development kits that bring together C++, C#, VB.NET and Delphi developers with he world of video codecs <br> and professional I/O equipment. Our products are used in broadcasting, digital signage, sports, medicine, security and other markets.</div>
+      </div>
+      <div class="footer__btn-holder">Need more info?<a href="#" class="footer__btn">Contact our support & sales team!</a></div>
+      <div class="footer__trademark">FFmpeg is a trademark of Fabrice Bellard, originator of the FFmpeg project. Blackmagic Design, DELTACAST, Bluefish444, AJA, Stream Labs, Flash and other trademarks are property of their respective owners.</div>
+    </div>
+  </footer>
 </body>

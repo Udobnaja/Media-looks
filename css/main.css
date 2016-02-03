@@ -19,4 +19,7 @@ body{
 	font: 16px/18px 'Open Sans', sans-serif;;
 	color: #8e8e8e;
 	font-weight: 300;
+    width: 100%;
+    min-width: 1300px;
+    margin: 0 auto;
 }

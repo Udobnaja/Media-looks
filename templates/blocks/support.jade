@@ -1,0 +1,361 @@
+h2.headline.headline_h2 Supported formats
+	.headline__subtitle.headline__subtitle_h2 Containers, codecs, network streams and features
+mixin support(elements)
+	- var className;
+	.support
+		.support__sticky.sticky
+			.row
+				.row__col.sticky__subtitle
+				.row__col.sticky__status Startup
+				.row__col.sticky__status.sticky__status_pro Professional
+				.row__col.sticky__status Expert
+		each element in elements
+			- className = 'support__arrow'
+			- if (element.last)
+				.support__headline.support__headline_last.js-show-next
+					.support__name= element.headlineName
+					.support__arrow.support__arrow_close
+			- else
+				.support__headline.js-show-next
+					.support__name= element.headlineName
+					- if (element.first)
+						.support__arrow
+					- else 
+						.support__arrow.support__arrow_close
+			- if (element.first)
+				.support__body(style="display:block")
+					-if (element.supportBody)
+						+supportBody(element.supportBody)
+			- else 
+				.support__body
+					-if (element.supportBody)
+						+supportBody(element.supportBody)
+				
+
+mixin supportBody(elements)
+	each element in elements
+		.row.support__item
+			.row__col.support__subtitle= element.supportSubtitile
+			- var className 
+			- for(var i = 0; i < element.supportStatus.length; i++ )
+				- className = 'row__col support__status'
+				- if (i===1)
+					- className += ' support__status_pro'
+				- if (!element.supportStatus[i])
+					- className += ' support__status_not'
+				div(class= className)
+
++support([
+    {
+        headlineName: 'File formats',
+        first: true,
+        supportBody: [
+            {
+                supportSubtitile: 'MP4',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'MOV',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'DV',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'MPEG-TS',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'MPEG-TS',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'ASF/WMV',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'MP4',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'AVI',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'DVD-Video',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'MXF',
+                supportStatus: [false, false, true]
+            },
+            {
+                supportSubtitile: 'LXF',
+                supportStatus: [false, false, true]
+            }
+        ]
+    },
+    {
+        headlineName: 'Network streams',
+        supportBody: [
+            {
+                supportSubtitile: 'RTMP',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'HTTP',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'UDP',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'RTSP (receive only)',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'MPEG-DASH (receive only)',
+                supportStatus: [false, true, true]
+            },
+            {
+                supportSubtitile: 'WebRTC (coming soon)',
+                supportStatus: [false, true, true]
+            },
+            {
+                supportSubtitile: 'NewTek\'s NDI (coming soon)',
+                supportStatus: [false, true, true]
+            }
+        ]
+    },
+    {
+        headlineName: 'Video codecs',
+        supportBody: [
+            {
+                supportSubtitile: 'H.264/AVC (CPU-based playback)',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'H.265/HEVC (CPU-based playback)',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'MPEG-4',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'MPEG-2',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'DVCPRO',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'M-JPEG',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'DNxHD',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'WMV',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'VC-1o',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'VP8',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'VP9',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'H.264/AVC (GPU-powered encoding)',
+                supportStatus: [false, false, true]
+            },
+            {
+                supportSubtitile: 'H.265/HEVC (GPU-powered encoding)',
+                supportStatus: [false, false, true]
+            },
+        ]
+    },
+    {
+        headlineName: 'Audio codecs',
+        supportBody: [
+            {
+                supportSubtitile: 'AAC',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'MP3',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'WMA',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'FLAC',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'Vorbis',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'MP2',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'PCM',
+                supportStatus: [true, true, true]
+            },
+        ]
+    },
+    {
+        headlineName: 'Fatures',
+        last: true,
+        supportBody: [
+            {
+                supportSubtitile: 'Grab video from DirectShow-based live sources',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'Share a single video source between several processes or applications',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'Mix several video streams and use transition effects',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'Overlay simple text and images (.GIF, .JPG, .PNG) ',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'Low-latency integration with I/O hardware by Blackmagic Design, AJA, Bluefish444, DELTACAST and Stream Labs',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'GPU-powered screen capture engine',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'Growing files playback',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'Time shifting',
+                supportStatus: [true, true, true]
+            },
+            {
+                supportSubtitile: 'External decoding',
+                supportStatus: [true, true, true]
+            }
+        ]
+    }
+])   
+//- .support
+//- 	.support__headline.js-show-next File formats
+//- 		.support__arrow
+//- 	.support__body(style="display:block")
+//- 		.row.support__item
+//- 			.row__col.support__subtitle MP4
+//- 			.row__col.support__status 
+//- 			.row__col.support__status.support__status_pro 
+//- 			.row__col.support__status 
+//- 		.row.support__item
+//- 			.row__col.support__subtitle WOV
+//- 			.row__col.support__status
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle DV
+//- 			.row__col.support__status
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle MPEG-TS
+//- 			.row__col.support__status
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle MPEG-PS
+//- 			.row__col.support__status
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle FLV
+//- 			.row__col.support__status
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle ASF/WMV
+//- 			.row__col.support__status
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle AVI
+//- 			.row__col.support__status
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle DVD-video
+//- 			.row__col.support__status
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle MXF
+//- 			.row__col.support__status.support__status_not
+//- 			.row__col.support__status.support__status_not.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle LXF
+//- 			.row__col.support__status.support__status_not
+//- 			.row__col.support__status.support__status_not.support__status_pro
+//- 			.row__col.support__status
+//- 	.support__headline.js-show-next Network streams
+//- 		.support__arrow.support__arrow_close
+//- 	.support__body
+//- 		.row.support__item
+//- 			.row__col.support__subtitle RTMP
+//- 			.row__col.support__status 
+//- 			.row__col.support__status.support__status_pro 
+//- 			.row__col.support__status 
+//- 		.row.support__item
+//- 			.row__col.support__subtitle HTTP
+//- 			.row__col.support__status
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle UDP
+//- 			.row__col.support__status
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle RTSP (receive only)
+//- 			.row__col.support__status
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle MPEG-DASH (receive only)
+//- 			.row__col.support__status.support__status_not
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle WebRTC (coming soon)
+//- 			.row__col.support__status.support__status_not
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
+//- 		.row.support__item
+//- 			.row__col.support__subtitle NewTek's NDI (coming soon)
+//- 			.row__col.support__status.support__status_not
+//- 			.row__col.support__status.support__status_pro
+//- 			.row__col.support__status
