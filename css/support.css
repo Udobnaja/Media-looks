@@ -32,7 +32,7 @@
 	border-bottom-right-radius: 7px;
 	border-bottom: none;
 	transition: all .4s;
-	transition-delay: .6s;
+	transition-delay: .3s;
 }
 
 .support__arrow{
@@ -72,10 +72,21 @@
 
 .support__body{
 	background: #fff;
-	padding: 15px 30px;
+	padding: 0 30px;
+	overflow: hidden;
+}
+
+.support__spoiler{
 	transform: translateZ(0);
 	will-change: all;
-	display: none;
+	transition: all .6s ease;
+	margin-top: -100%;
+	transform: translate3d(0,0,0);
+}
+
+.support__spoiler_open{
+	margin-top: 0;
+	padding: 15px 0;
 }
 
 .support__body:last-child{

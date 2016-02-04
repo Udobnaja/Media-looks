@@ -88,14 +88,13 @@ var parseObj = [
 		}
 	];
 
+window.onscroll = function () {
+    startFixPanel();
+};
 
 $(function () {
 
 	startFixPanel();
-
-	window.onscroll = function () {
-        startFixPanel();
-    };
 
     defineColors(parseObj, '.js-code__content', function(index){
 		var elem = $(this),
@@ -140,7 +139,7 @@ $(function () {
 
     $('.js-show-next').click( function(e){
         e.preventDefault();
-        $(this).next().slideToggle(700);
+        $(this).next('.support__body').find('.support__spoiler').toggleClass('support__spoiler_open');
     });
 
     $('.support__headline').click( function(){

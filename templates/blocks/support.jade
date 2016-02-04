@@ -1,7 +1,7 @@
 h2.headline.headline_h2 Supported formats
 	.headline__subtitle.headline__subtitle_h2 Containers, codecs, network streams and features
 mixin support(elements)
-	- var className;
+	- var className, classSpoiler;
 	.support
 		.support__sticky.sticky
 			.row
@@ -22,15 +22,13 @@ mixin support(elements)
 						.support__arrow
 					- else 
 						.support__arrow.support__arrow_close
-			- if (element.first)
-				.support__body(style="display:block")
+			.support__body
+				- classSpoiler= 'support__spoiler'
+				- if (element.first)
+					- classSpoiler+= ' support__spoiler_open'
+				div(class= classSpoiler)
 					-if (element.supportBody)
 						+supportBody(element.supportBody)
-			- else 
-				.support__body
-					-if (element.supportBody)
-						+supportBody(element.supportBody)
-				
 
 mixin supportBody(elements)
 	each element in elements
@@ -46,221 +44,221 @@ mixin supportBody(elements)
 				div(class= className)
 
 +support([
-    {
-        headlineName: 'File formats',
-        first: true,
-        supportBody: [
-            {
-                supportSubtitile: 'MP4',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'MOV',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'DV',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'MPEG-TS',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'MPEG-TS',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'ASF/WMV',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'MP4',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'AVI',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'DVD-Video',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'MXF',
-                supportStatus: [false, false, true]
-            },
-            {
-                supportSubtitile: 'LXF',
-                supportStatus: [false, false, true]
-            }
-        ]
-    },
-    {
-        headlineName: 'Network streams',
-        supportBody: [
-            {
-                supportSubtitile: 'RTMP',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'HTTP',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'UDP',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'RTSP (receive only)',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'MPEG-DASH (receive only)',
-                supportStatus: [false, true, true]
-            },
-            {
-                supportSubtitile: 'WebRTC (coming soon)',
-                supportStatus: [false, true, true]
-            },
-            {
-                supportSubtitile: 'NewTek\'s NDI (coming soon)',
-                supportStatus: [false, true, true]
-            }
-        ]
-    },
-    {
-        headlineName: 'Video codecs',
-        supportBody: [
-            {
-                supportSubtitile: 'H.264/AVC (CPU-based playback)',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'H.265/HEVC (CPU-based playback)',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'MPEG-4',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'MPEG-2',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'DVCPRO',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'M-JPEG',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'DNxHD',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'WMV',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'VC-1o',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'VP8',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'VP9',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'H.264/AVC (GPU-powered encoding)',
-                supportStatus: [false, false, true]
-            },
-            {
-                supportSubtitile: 'H.265/HEVC (GPU-powered encoding)',
-                supportStatus: [false, false, true]
-            },
-        ]
-    },
-    {
-        headlineName: 'Audio codecs',
-        supportBody: [
-            {
-                supportSubtitile: 'AAC',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'MP3',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'WMA',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'FLAC',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'Vorbis',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'MP2',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'PCM',
-                supportStatus: [true, true, true]
-            },
-        ]
-    },
-    {
-        headlineName: 'Fatures',
-        last: true,
-        supportBody: [
-            {
-                supportSubtitile: 'Grab video from DirectShow-based live sources',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'Share a single video source between several processes or applications',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'Mix several video streams and use transition effects',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'Overlay simple text and images (.GIF, .JPG, .PNG) ',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'Low-latency integration with I/O hardware by Blackmagic Design, AJA, Bluefish444, DELTACAST and Stream Labs',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'GPU-powered screen capture engine',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'Growing files playback',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'Time shifting',
-                supportStatus: [true, true, true]
-            },
-            {
-                supportSubtitile: 'External decoding',
-                supportStatus: [true, true, true]
-            }
-        ]
-    }
+	{
+		headlineName: 'File formats',
+		first: true,
+		supportBody: [
+			{
+				supportSubtitile: 'MP4',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'MOV',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'DV',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'MPEG-TS',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'MPEG-TS',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'ASF/WMV',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'MP4',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'AVI',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'DVD-Video',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'MXF',
+				supportStatus: [false, false, true]
+			},
+			{
+				supportSubtitile: 'LXF',
+				supportStatus: [false, false, true]
+			}
+		]
+	},
+	{
+		headlineName: 'Network streams',
+		supportBody: [
+			{
+				supportSubtitile: 'RTMP',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'HTTP',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'UDP',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'RTSP (receive only)',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'MPEG-DASH (receive only)',
+				supportStatus: [false, true, true]
+			},
+			{
+				supportSubtitile: 'WebRTC (coming soon)',
+				supportStatus: [false, true, true]
+			},
+			{
+				supportSubtitile: 'NewTek\'s NDI (coming soon)',
+				supportStatus: [false, true, true]
+			}
+		]
+	},
+	{
+		headlineName: 'Video codecs',
+		supportBody: [
+			{
+				supportSubtitile: 'H.264/AVC (CPU-based playback)',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'H.265/HEVC (CPU-based playback)',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'MPEG-4',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'MPEG-2',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'DVCPRO',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'M-JPEG',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'DNxHD',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'WMV',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'VC-1o',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'VP8',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'VP9',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'H.264/AVC (GPU-powered encoding)',
+				supportStatus: [false, false, true]
+			},
+			{
+				supportSubtitile: 'H.265/HEVC (GPU-powered encoding)',
+				supportStatus: [false, false, true]
+			},
+		]
+	},
+	{
+		headlineName: 'Audio codecs',
+		supportBody: [
+			{
+				supportSubtitile: 'AAC',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'MP3',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'WMA',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'FLAC',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'Vorbis',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'MP2',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'PCM',
+				supportStatus: [true, true, true]
+			},
+		]
+	},
+	{
+		headlineName: 'Fatures',
+		last: true,
+		supportBody: [
+			{
+				supportSubtitile: 'Grab video from DirectShow-based live sources',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'Share a single video source between several processes or applications',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'Mix several video streams and use transition effects',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'Overlay simple text and images (.GIF, .JPG, .PNG) ',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'Low-latency integration with I/O hardware by Blackmagic Design, AJA, Bluefish444, DELTACAST and Stream Labs',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'GPU-powered screen capture engine',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'Growing files playback',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'Time shifting',
+				supportStatus: [true, true, true]
+			},
+			{
+				supportSubtitile: 'External decoding',
+				supportStatus: [true, true, true]
+			}
+		]
+	}
 ])   
 //- .support
 //- 	.support__headline.js-show-next File formats
