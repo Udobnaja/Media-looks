@@ -79,7 +79,7 @@ var parseObj = [
 			className: 'code__color-brown'
 		},
 		{
-			str: [",", "(\[.]|\[(])|\[{]|\[}]", "\[)];", ";$"],
+			str: [",", "(\[.]|\[(])|\[{]|\[}]", "\[)]|\[)];", ";$"],
 			className: 'code__color-gray'
 		},
 		{
