@@ -14,12 +14,15 @@
 	text-align: center;
 	padding-top: 75px;
 	padding-bottom: 45px;
+	font-weight: 300;
+	margin: 0 auto;
 }
 
 .footer__subtitle{
 	padding-top: 15px;
 	font-size: 18px;
 	line-height: 27px;
+	display: block;
 }
 
 .footer__btn-holder{

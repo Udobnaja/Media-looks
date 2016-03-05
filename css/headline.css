@@ -11,6 +11,7 @@
 .headline__subtitle{
 	font-size: 24px;
 	color: #4d4d4d;
+	display: block;
 }
 
 .headline_h2{
